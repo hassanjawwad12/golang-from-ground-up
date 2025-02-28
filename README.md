@@ -13,6 +13,7 @@ Complete golang guide
 ## Explanations and Details 
 
 ### Modules and Packages
+* Run using `go run .` or `go run <filename>.go`
 * Built-in Commands are Provided by Packages
     * For Example : `fmt` is a `built-in package` which provides I/O functions
 * In go you cannot use `single quotes('')` , only the `double quotes ("")` and `back-ticks (``)` are allowed
@@ -34,9 +35,17 @@ Complete golang guide
 ### Conventions
 * It is better to use `_` instead of `-` when handling `multi-word` file names
 * CamelCase naming is used in GO
+
+### Variables and Types
+* Variables can be re-assigned
+* You can add comma if 2 var have the same type or different type
+* Use `:=` as often as possible
 * GO is a statically typed language so types are important in go 
 * You cannot mismatch types in calculations
 * Adding Types Explicitly help us get rid off explicit type conversions
-* Use `:=` as often as possible
-* You can add comma if 2 var have the same type or different type
-* 
+* We need to `pass pointer` to a variable to scan so scan populates it with user input 
+
+### User Input 
+* `fmt.Scan()`You can't (easily) fetch multi-word input values. Fetching text that consists of more than a single word is tricky with this function.
+
+
