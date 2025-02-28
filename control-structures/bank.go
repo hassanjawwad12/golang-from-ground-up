@@ -1,38 +1,41 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
 )
 
-var balance float64
-
 const balanceFile = "balance.txt"
 
 func writeBalancetoFile(balance float64) {
-	// Write the balance to a file
 	balanceText := fmt.Sprintf("%f", balance)
 	os.WriteFile("balance.txt", []byte(balanceText), 0644)
 }
 
-func readBalanceFromFile() float64 {
+func readBalanceFromFile() (float64, error) {
 	data, err := os.ReadFile(balanceFile)
 	if err != nil {
 		fmt.Println("Error reading balance file", err)
-		return 0
+		return 1000, errors.New("error reading balance file")
 	}
 	balance, err := strconv.ParseFloat(string(data), 64)
 	if err != nil {
 		fmt.Println("Error parsing balance", err)
-		return 0
+		return 1000, errors.New("error parsing balance")
 	}
-	return balance
+	return balance, nil
 }
 
 func main() {
 
-	balance = readBalanceFromFile()
+	var balance, err = readBalanceFromFile()
+	if err != nil {
+		fmt.Println("Error", err)
+		fmt.Println("------------")
+		panic(err)
+	}
 
 	fmt.Println("Welcome to the Bank of Golang")
 
