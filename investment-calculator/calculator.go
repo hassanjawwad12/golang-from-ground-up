@@ -5,24 +5,29 @@ import (
 	"math"
 )
 
+// Define globally when used at more than one instance
+const inflationRate = 3.5
+
 func outputText(name string, value *float64) {
-	fmt.Printf("Enter the %s amount: ", name)
+	fmt.Printf("Enter the %s : ", name)
 	fmt.Scan(value)
 }
 
+func calculateFutureValue(investmentAmount, interestRate, years float64) (futureValue float64, realFutureValue float64) {
+	futureValue = investmentAmount * math.Pow((1+interestRate/100), years)
+	realFutureValue = futureValue / math.Pow((1+inflationRate/100), years)
+	return
+}
+
 func main() {
-	fmt.Println("Investment Calculator")
-	const inflationRate = 3.5
 	var interestRate, years, investmentAmount float64
 
-	// Get input values from user
-	outputText("investment", &investmentAmount)
-	outputText("years", &years)
-	outputText("interest rate", &interestRate)
+	outputText("Investment", &investmentAmount)
+	outputText("Years", &years)
+	outputText("Interest Rate", &interestRate)
 
-	futureValue := investmentAmount * math.Pow((1+interestRate/100), years)
-	futureRealValue := futureValue / math.Pow((1+inflationRate/100), years)
+	a, b := calculateFutureValue(investmentAmount, interestRate, years)
 
-	fmt.Printf("Future value of investment is: %.2f\n", futureValue)
-	fmt.Printf("Future real value of investment is: %.2f\n", futureRealValue)
+	fmt.Printf("Future value of investment is: %.2f\n", a)
+	fmt.Printf("Future real value of investment is: %.2f\n", b)
 }

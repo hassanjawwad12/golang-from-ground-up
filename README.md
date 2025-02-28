@@ -51,4 +51,7 @@ Complete golang guide
 
 ### Function 
 * It is a code on demand block
+* Must add return type for the function 
+* If u declare return variable name in the function , u dont need to redefine it inside the function body
+* If u are returning 2 values by defining the names in the function you can simply use `return` instead of `return a,b`
 
