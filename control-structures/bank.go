@@ -1,9 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+var balance float64
+
+const balanceFile = "balance.txt"
+
+func writeBalancetoFile(balance float64) {
+	// Write the balance to a file
+	balanceText := fmt.Sprintf("%f", balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+}
+
+func readBalanceFromFile() float64 {
+	data, err := os.ReadFile(balanceFile)
+	if err != nil {
+		fmt.Println("Error reading balance file", err)
+		return 0
+	}
+	balance, err := strconv.ParseFloat(string(data), 64)
+	if err != nil {
+		fmt.Println("Error parsing balance", err)
+		return 0
+	}
+	return balance
+}
 
 func main() {
-	var balance float64 = 1000.50
+
+	balance = readBalanceFromFile()
 
 	fmt.Println("Welcome to the Bank of Golang")
 
@@ -34,6 +63,7 @@ func main() {
 			}
 			balance += deposit
 			fmt.Println("You have deposited", deposit, "and your new balance is", balance)
+			writeBalancetoFile(balance)
 		} else if wantWithdraw {
 			var withdraw float64
 			fmt.Print("Enter the amount to withdraw: ")
@@ -44,11 +74,11 @@ func main() {
 			} else {
 				balance -= withdraw
 				fmt.Println("You have withdrawn", withdraw, "and your new balance is", balance)
+				writeBalancetoFile(balance)
 			}
 		} else {
 			fmt.Println("Thank you for using the Bank of Golang")
 			break
 		}
 	}
-
 }

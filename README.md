@@ -55,3 +55,5 @@ Complete golang guide
 * If u declare return variable name in the function , u dont need to redefine it inside the function body
 * If u are returning 2 values by defining the names in the function you can simply use `return` instead of `return a,b`
 
+### Loops and Switch 
+* If u want to get out of the loop and do further processing dont use switch as u cannot break in default.
