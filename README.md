@@ -11,10 +11,13 @@ Complete golang guide
 * Pointers 
 
 ## Explanations and Details 
+
+### Modules and Packages
 * Built-in Commands are Provided by Packages
     * For Example : `fmt` is a `built-in package` which provides I/O functions
 * In go you cannot use `single quotes('')` , only the `double quotes ("")` and `back-ticks (``)` are allowed
 * Function is a command executed by ourselves but the main function is executed by go itself
+* The function must be named main in the main file of the application
 * Each go file must have a package , a single package can be split across multiple files 
 * We can use a package from one file into another file 
 * Some Packages are included in go and some need to be installed 
@@ -24,3 +27,16 @@ Complete golang guide
 * One module consist of multiple Packages
 * run the `go mod init <location>` to make module. The location should be the path where u wish to host your module
 * The `go.mod` file tells that the folder in which the file is stored and the sub folder belong to the module of this name 
+* GO does not run chronologically from top to bottom like JS
+* You also should have a single main function
+* If you are building a third party utility you don't need a main function
+
+### Conventions
+* It is better to use `_` instead of `-` when handling `multi-word` file names
+* CamelCase naming is used in GO
+* GO is a statically typed language so types are important in go 
+* You cannot mismatch types in calculations
+* Adding Types Explicitly help us get rid off explicit type conversions
+* Use `:=` as often as possible
+* You can add comma if 2 var have the same type or different type
+* 
