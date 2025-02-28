@@ -19,9 +19,5 @@ func main() {
 	netProfit := profit - tax
 	ratio := netProfit / profit
 
-	fmt.Println("Profit is: ", profit)
-	fmt.Println("Tax is: ", tax)
-	fmt.Println("Net profit is: ", netProfit)
-	fmt.Println("Net profit ratio is: ", ratio)
-
+	fmt.Printf("Profit is %.2f\nTax is %.2f\nNet profit is %.2f\nNet profit ratio is %.2f\n", profit, tax, netProfit, ratio)
 }
