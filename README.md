@@ -45,7 +45,10 @@ Complete golang guide
 * Adding Types Explicitly help us get rid off explicit type conversions
 * We need to `pass pointer` to a variable to scan so scan populates it with user input 
 
-### User Input 
+### FMT Package
 * `fmt.Scan()`You can't (easily) fetch multi-word input values. Fetching text that consists of more than a single word is tricky with this function.
+* If u dont want to print output on screen but format string and use it internally use `fmt.Sprintf`
 
+### Function 
+* It is a code on demand block
 
