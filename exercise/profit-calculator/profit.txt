@@ -1,0 +1,4 @@
+Profit is 500.00
+Tax is 12.50
+Net profit is 487.50
+Net profit ratio is 0.97
