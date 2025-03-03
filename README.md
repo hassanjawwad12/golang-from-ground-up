@@ -68,9 +68,19 @@ Complete golang guide
 ### Pacakges 
 * Two packages declaration is now allowed in the same folder
 * Function name which needs to be exported should always be capital in a package 
-* You can search for third-party packages here (go-search)[https://pkg.go.dev/]
+* You can search for third-party packages here [go-search](https://pkg.go.dev/)
 * All third party dependecies are listed in the `go.mod` file
 * When `go get` is run without any path , it downloads all the dependencies in the `go.mod` file
 
 ### Pointers 
-* 
+* Pointers are variables which stores variables addresses instead of values 
+* `&` retrieves address of stored value
+* Pointers enable direct mutation of values 
+* Pointers prevent unnecessary value copies (when passing pointers as argument to function , copy is not created. Function uses the address to look up the value)
+* With pointers only one value is stored in memory and the address is passed around
+* All values in Go have a so-called `Null Value` - i.e., the value that's set as a default if no value is assigned to a variable.
+For example, the null value of an int variable is 0. Of a float64, it would be 0.0. Of a string, it's "".
+For a `pointer`, it's `nil` - a special value built-into Go.
+nil represents the `absence` of an `address value `- i.e., a pointer pointing at no address / no value in memory.
+* Scan function takes pointer , internally dereference the pointer and overwrites the value stored in the address with value entered by the user 
+
