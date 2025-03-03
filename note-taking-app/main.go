@@ -17,8 +17,14 @@ func main() {
 		fmt.Println("Error:", err)
 		return
 	}
-
 	newNote.Display()
+
+	err = newNote.SaveToFile()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Note saved to file")
 }
 
 func getNoteData() (string, string) {
