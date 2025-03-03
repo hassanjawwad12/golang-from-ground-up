@@ -16,6 +16,12 @@ type saver interface {
 	Save() error
 }
 
+// embedding the saver interface in the outputtable interface
+type outputtable interface {
+	saver
+	Display()
+}
+
 func saveData(s saver) error {
 	err := s.Save()
 	if err != nil {
@@ -24,6 +30,11 @@ func saveData(s saver) error {
 	}
 	fmt.Println("Data saved successfully")
 	return nil
+}
+
+func outputData(data outputtable) error {
+	data.Display()
+	return saveData(data)
 }
 
 func getNoteData() (string, string) {
@@ -51,35 +62,32 @@ func getUserInput(prompt string) string {
 }
 
 func main() {
-	fmt.Println("Welcome to the interface app")
 	title, content := getNoteData()
 	todoText := getUserInput("Todo content:")
 
-	// Creating and saving Todo
 	todos, err := todo.New(todoText)
+
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	todos.Display()
-	err = saveData(todos)
 
-	if err != nil {
-		return
-	}
-	fmt.Println("Todo saved to file")
-
-	// Creating and saving Note
 	newNote, err := note.New(title, content)
+
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	newNote.Display()
-	err = saveData(newNote)
 
+	err = outputData(newNote)
 	if err != nil {
 		return
 	}
 	fmt.Println("Note saved to file")
+
+	err = outputData(todos)
+	if err != nil {
+		return
+	}
+	fmt.Println("Todo saved to file")
 }
