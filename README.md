@@ -107,3 +107,9 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 ## Array 
 * Starting index is inclusive, ending index is exclusive when using `[1:2]`
 * There is no limit for the amount of values u can write after append
+
+## Map 
+* Groups data together with labels
+* For maps we can use anything as a key so we have more flexibilty 
+* We cannot `mutate` a struct
+
