@@ -103,3 +103,6 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 
 ## Generics 
 * Generics allow u to write more resuable and more generic functions where go can infer the type of values u are working with 
+
+## Array 
+* Starting index is inclusive, ending index is exclusive when using `[1:2]`
