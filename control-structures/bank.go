@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/Pallinder/go-randomdata"
 	"github.com/hassanjawwad12/golang-from-ground-up/filemanagement"
 )
 
@@ -18,6 +19,7 @@ func main() {
 	}
 
 	fmt.Println("Welcome to the Bank of Golang")
+	fmt.Println("Reach us", randomdata.PhoneNumber())
 
 	for {
 		presentOpions()

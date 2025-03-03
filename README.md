@@ -61,3 +61,6 @@ Complete golang guide
 ### Pacakges 
 * Two packages declaration is now allowed in the same folder
 * Function name which needs to be exported should always be capital in a package 
+* You can search for third-party packages here (go-search)[https://pkg.go.dev/]
+* All third party dependecies are listed in the `go.mod` file
+* When `go get` is run without any path , it downloads all the dependencies in the `go.mod` file
