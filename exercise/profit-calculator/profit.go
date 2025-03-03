@@ -21,7 +21,7 @@ func performCalculation(revenue, expenses, taxRate float64) (profit, tax, netPro
 	tax = profit * taxRate / 100
 	netProfit = profit - tax
 	ratio = netProfit / profit
-	return
+	return profit, tax, netProfit, ratio
 }
 
 func storeResults(profit, tax, netProfit, ratio float64) (float64, float64, float64, float64) {

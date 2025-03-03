@@ -57,3 +57,7 @@ Complete golang guide
 
 ### Loops and Switch 
 * If u want to get out of the loop and do further processing dont use switch as u cannot break in default.
+
+### Pacakges 
+* Two packages declaration is now allowed in the same folder
+* Function name which needs to be exported should always be capital in a package 

@@ -1,36 +1,16 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
+
+	"github.com/hassanjawwad12/golang-from-ground-up/filemanagement"
 )
 
 const balanceFile = "balance.txt"
 
-func writeBalancetoFile(balance float64) {
-	balanceText := fmt.Sprintf("%f", balance)
-	os.WriteFile("balance.txt", []byte(balanceText), 0644)
-}
-
-func readBalanceFromFile() (float64, error) {
-	data, err := os.ReadFile(balanceFile)
-	if err != nil {
-		fmt.Println("Error reading balance file", err)
-		return 1000, errors.New("error reading balance file")
-	}
-	balance, err := strconv.ParseFloat(string(data), 64)
-	if err != nil {
-		fmt.Println("Error parsing balance", err)
-		return 1000, errors.New("error parsing balance")
-	}
-	return balance, nil
-}
-
 func main() {
 
-	var balance, err = readBalanceFromFile()
+	var balance, err = filemanagement.ReadFloatFromFile(balanceFile)
 	if err != nil {
 		fmt.Println("Error", err)
 		fmt.Println("------------")
@@ -40,11 +20,7 @@ func main() {
 	fmt.Println("Welcome to the Bank of Golang")
 
 	for {
-		fmt.Println("What do u want to do?")
-		fmt.Println("1. Check Balance")
-		fmt.Println("2. Deposit")
-		fmt.Println("3. Withdraw")
-		fmt.Println("4. Exit")
+		presentOpions()
 
 		var choice int
 		fmt.Print("Enter your choice: ")
@@ -66,7 +42,7 @@ func main() {
 			}
 			balance += deposit
 			fmt.Println("You have deposited", deposit, "and your new balance is", balance)
-			writeBalancetoFile(balance)
+			filemanagement.WriteFloattoFile(balance, balanceFile)
 		} else if wantWithdraw {
 			var withdraw float64
 			fmt.Print("Enter the amount to withdraw: ")
@@ -77,7 +53,7 @@ func main() {
 			} else {
 				balance -= withdraw
 				fmt.Println("You have withdrawn", withdraw, "and your new balance is", balance)
-				writeBalancetoFile(balance)
+				filemanagement.WriteFloattoFile(balance, balanceFile)
 			}
 		} else {
 			fmt.Println("Thank you for using the Bank of Golang")
