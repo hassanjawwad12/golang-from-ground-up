@@ -87,3 +87,5 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 ### Structs
 * Related data needs to be passed individually but struct solve this problem by grouping the related data 
 * Always accept the struct as pointer and never as a value when making a method which edits the struct 
+* Struct Embedding is building a new struct that builds up on an existing struct
+* Always `Prefer anonymous` embedding over `Explicit Embedding`(where u add a fieldname for a struct)

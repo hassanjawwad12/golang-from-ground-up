@@ -26,4 +26,8 @@ func main() {
 	appuser.DisplayUser()
 	appuser.ChangeName()
 	appuser.DisplayUser()
+
+	admin := user.NewAdmin("test@example.com", "test123")
+	admin.DisplayUser()
+	admin.DisplayUser()
 }

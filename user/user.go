@@ -14,6 +14,12 @@ type User struct {
 	CreatedAt time.Time
 }
 
+type Admin struct {
+	User     //embedding
+	Email    string
+	Password string
+}
+
 // struct constructor (just a convention)
 func NewUser(firstName, lastName, birthDate string) (*User, error) {
 	if firstName == "" || lastName == "" || birthDate == "" {
@@ -25,6 +31,19 @@ func NewUser(firstName, lastName, birthDate string) (*User, error) {
 		BirthDate: birthDate,
 		CreatedAt: time.Now(),
 	}, nil
+}
+
+func NewAdmin(email, password string) Admin {
+	return Admin{
+		Email:    email,
+		Password: password,
+		User: User{
+			FirstName: "ADMIN",
+			LastName:  "ADMIN",
+			BirthDate: "---",
+			CreatedAt: time.Now(),
+		},
+	}
 }
 
 func (u *User) DisplayUser() {
