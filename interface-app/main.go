@@ -10,13 +10,15 @@ import (
 	"github.com/hassanjawwad12/golang-from-ground-up/todo"
 )
 
-// any struct that adheres to this interface must have a Save method
-// so we can pass any struct to the function expecting a saver interface which have a save method
+// The saver interface expects any struct that implements it to have a Save method.
+// This allows us to pass any struct that implements the saver interface to functions
+// that require saving data, such as note or todo structs.
 type saver interface {
 	Save() error
 }
 
-// embedding the saver interface in the outputtable interface
+// The outputtable interface embeds the saver interface,
+// meaning any type that implements outputtable must also implement saver.
 type outputtable interface {
 	saver
 	Display()
