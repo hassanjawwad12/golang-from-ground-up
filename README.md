@@ -94,3 +94,5 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 ### Types 
 * type keyword can also be used to assign alias to built-in types 
 * To read a single character use `reader.ReadString('\n')` use single quotes instead of double
+
+### Interfaces 
