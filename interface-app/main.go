@@ -10,6 +10,22 @@ import (
 	"github.com/hassanjawwad12/golang-from-ground-up/todo"
 )
 
+// any struct that adheres to this interface must have a Save method
+// so we can pass any struct to the function expecting a saver interface which have a save method
+type saver interface {
+	Save() error
+}
+
+func saveData(s saver) error {
+	err := s.Save()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return err
+	}
+	fmt.Println("Data saved successfully")
+	return nil
+}
+
 func getNoteData() (string, string) {
 	title := getUserInput("Note title:")
 	content := getUserInput("Note content:")
@@ -22,7 +38,6 @@ func getUserInput(prompt string) string {
 
 	// read the user input from command line os.Stdin
 	reader := bufio.NewReader(os.Stdin)
-
 	text, err := reader.ReadString('\n')
 
 	if err != nil {
@@ -40,30 +55,30 @@ func main() {
 	title, content := getNoteData()
 	todoText := getUserInput("Todo content:")
 
+	// Creating and saving Todo
 	todos, err := todo.New(todoText)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 	todos.Display()
+	err = saveData(todos)
 
-	err = todos.SaveToFile()
 	if err != nil {
-		fmt.Println("Error:", err)
 		return
 	}
 	fmt.Println("Todo saved to file")
 
+	// Creating and saving Note
 	newNote, err := note.New(title, content)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 	newNote.Display()
+	err = saveData(newNote)
 
-	err = newNote.SaveToFile()
 	if err != nil {
-		fmt.Println("Error:", err)
 		return
 	}
 	fmt.Println("Note saved to file")

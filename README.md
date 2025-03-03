@@ -96,3 +96,5 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 * To read a single character use `reader.ReadString('\n')` use single quotes instead of double
 
 ### Interfaces 
+* An interface is a contract that guarantees that a certain value (struct) has a certain method 
+* If an interface defines only one method than the interface name is the name of the methid with er at the end

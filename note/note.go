@@ -30,7 +30,7 @@ func (note Note) Display() {
 	fmt.Printf("Your note titled %v has the following content:\n\n%v\n\n", note.Title, note.Content)
 }
 
-func (note Note) SaveToFile() error {
+func (note Note) Save() error {
 	fileName := strings.ReplaceAll(note.Title, " ", "_") + ".json"
 	fileName = strings.ToLower(fileName) //lowercase characters
 	json, err := json.Marshal(note)
