@@ -13,6 +13,16 @@ type user struct {
 	createdAt time.Time
 }
 
+// struct constructor (just a convention)
+func newUser(firstName, lastName, birthDate string) *user {
+	return &user{
+		firstName: firstName,
+		lastName:  lastName,
+		birthDate: birthDate,
+		createdAt: time.Now(),
+	}
+}
+
 // struct method to display user data
 func (u *user) displayUser() {
 	fmt.Println("First Name:", u.firstName)
@@ -21,11 +31,9 @@ func (u *user) displayUser() {
 	fmt.Println("Created At:", u.createdAt)
 }
 
-func displayUser(u *user) {
-	fmt.Println("First Name:", u.firstName)
-	fmt.Println("Last Name:", u.lastName)
-	fmt.Println("Birth Date:", u.birthDate)
-	fmt.Println("Created At:", u.createdAt)
+// struct method to change user name
+func (u *user) changeName() {
+	u.firstName = getUserData("Please enter your first name again: ")
 }
 
 func getUserData(promptText string) string {
@@ -40,17 +48,9 @@ func main() {
 	lastName := getUserData("Please enter your last name: ")
 	birthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	// create a new user
-	appuser := user{
-		firstName: firstName,
-		lastName:  lastName,
-		birthDate: birthdate,
-		createdAt: time.Now(),
-	}
-
-	// call function
-	displayUser(&appuser)
-	fmt.Println("")
-	// call method of struct
+	// create a new user using constructor
+	appuser := newUser(firstName, lastName, birthdate)
+	appuser.displayUser()
+	appuser.changeName()
 	appuser.displayUser()
 }

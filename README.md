@@ -1,7 +1,7 @@
 # golang-from-ground-up
 Complete golang guide
 
-## Things covered are the following:
+### Things covered are the following:
 * Array, Slices , Maps 
 * Concurrency 
 * Functions 
@@ -86,3 +86,4 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 
 ### Structs
 * Related data needs to be passed individually but struct solve this problem by grouping the related data 
+* Always accept the struct as pointer and never as a value when making a method which edits the struct 
