@@ -31,6 +31,7 @@ func main() {
 	goals = append(goals, "Learn all the basics!")
 	fmt.Println("The values of slice goals are: ", goals)
 
+	// we are creating a slice of products
 	products := []Product{
 		{Name: "laptop", Price: 2000},
 		{Name: "phone", Price: 1000},

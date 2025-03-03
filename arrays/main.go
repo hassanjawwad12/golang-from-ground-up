@@ -35,4 +35,8 @@ func main() {
 
 	highlightedPrices = append(highlightedPrices, 5.99)
 	fmt.Println("values in array highlighter prices are: ", highlightedPrices)
+
+	discountPrices := []float64{101.99, 80.99, 20.59}
+	discountPrices = append(highlightedPrices, discountPrices...)
+	fmt.Println(discountPrices)
 }
