@@ -58,9 +58,19 @@ Complete golang guide
 ### Loops and Switch 
 * If u want to get out of the loop and do further processing dont use switch as u cannot break in default.
 
+### File Permissions 
+* 755 means you can do anything with the file or directory, and other users can read and execute it but not alter it.Suitable for programs and directories you want to make publicly available.
+* 644 means you can read and write the file or directory and other users can only read it. Suitable for public text files.
+*711 means you can do anything with the file or directory and other users can only execute it. Suitable for directories where you don't want other people browsing through the contents but do want to give them access to selected files. This is the default for your home directory and the minimum access required for your public_html directory if you have a personal website.
+* 700 means you can do anything with the file or directory and other users have no access to it at all. Suitable for private directories and programs.
+* 600 means you can read and write the file or directory and other users have no access to it. Suitable for private text files.
+
 ### Pacakges 
 * Two packages declaration is now allowed in the same folder
 * Function name which needs to be exported should always be capital in a package 
 * You can search for third-party packages here (go-search)[https://pkg.go.dev/]
 * All third party dependecies are listed in the `go.mod` file
 * When `go get` is run without any path , it downloads all the dependencies in the `go.mod` file
+
+### Pointers 
+* 
