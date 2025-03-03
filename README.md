@@ -100,3 +100,6 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 * If an interface defines only one method than the interface name is the name of the methid with er at the end
 * Use embedding if you want to create composable, reusable interfaces
 * Use `interface{}` for any kind of value 
+
+## Generics 
+* Generics allow u to write more resuable and more generic functions where go can infer the type of values u are working with 
