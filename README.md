@@ -84,3 +84,5 @@ For a `pointer`, it's `nil` - a special value built-into Go.
 nil represents the `absence` of an `address value `- i.e., a pointer pointing at no address / no value in memory.
 * Scan function takes pointer , internally dereference the pointer and overwrites the value stored in the address with value entered by the user 
 
+### Structs
+* Related data needs to be passed individually but struct solve this problem by grouping the related data 
