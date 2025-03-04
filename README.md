@@ -118,3 +118,4 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 * Write a generic function once and accept the transformation required as parameter 
 * You can define functions when u need them with anonymous functions instead of defining in advance 
 * Anonymous functions does not have a name and thats why we cant call it anywhere else 
+* Recursion is when a function calls itself
