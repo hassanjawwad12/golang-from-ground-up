@@ -1,14 +1,26 @@
 # golang-from-ground-up
 Complete golang guide
 
-### Things covered are the following:
-* Array, Slices , Maps 
-* Concurrency 
-* Functions 
-* Structs 
-* Interfaces 
-* Packages 
-* Pointers 
+## 📄 Table of Contents
+
+1. [Introduction](#golang-from-ground-up)
+2. [Modules and Packages](#modules-and-packages)
+3. [Conventions](#conventions)
+4. [Variables and Types](#variables-and-types)
+5. [FMT Package](#fmt-package)
+6. [Functions](#function)
+7. [Loops and Switch](#loops-and-switch)
+8. [File Permissions](#file-permissions)
+9. [Packages](#pacakges)
+10. [Pointers](#pointers)
+11. [Structs](#structs)
+12. [Types](#types)
+13. [Interfaces](#interfaces)
+14. [Generics](#generics)
+15. [Array](#array)
+16. [Map](#map)
+17. [Functions (Advanced)](#functions)
+18. [Goroutines](#goroutine)
 
 # Explanations and Details 
 
