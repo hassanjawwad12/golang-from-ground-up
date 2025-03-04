@@ -113,9 +113,14 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 * For maps we can use anything as a key so we have more flexibilty 
 * We cannot `mutate` a struct
 
-### Functions
+## Functions
 * Functions can be used as parameter values for other functions 
 * Write a generic function once and accept the transformation required as parameter 
 * You can define functions when u need them with anonymous functions instead of defining in advance 
 * Anonymous functions does not have a name and thats why we cant call it anywhere else 
 * Recursion is when a function calls itself
+
+## goroutine 
+* Can run multiple functions in parallel
+* A channel is a value in go that can be used as communication channel when working with go-routine
+* We can use a single channel with multiple go-routines but we have to wait for as many values as go routines
