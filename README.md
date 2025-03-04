@@ -66,7 +66,7 @@ Complete golang guide
 * 600 means you can read and write the file or directory and other users have no access to it. Suitable for private text files.
 
 ## Pacakges 
-* Two packages declaration is now allowed in the same folder
+* Two packages declaration is not allowed in the same folder
 * Function name which needs to be exported should always be capital in a package 
 * You can search for third-party packages here [go-search](https://pkg.go.dev/)
 * All third party dependecies are listed in the `go.mod` file
