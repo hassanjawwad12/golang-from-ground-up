@@ -113,3 +113,6 @@ nil represents the `absence` of an `address value `- i.e., a pointer pointing at
 * For maps we can use anything as a key so we have more flexibilty 
 * We cannot `mutate` a struct
 
+### Functions
+* Functions can be used as parameter values for other functions 
+* Write a generic function once and accept the transformation required as parameter 
